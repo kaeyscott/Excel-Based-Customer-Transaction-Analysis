@@ -54,8 +54,21 @@ TASK 6
     Using Vlookup, from Task 2, what category does the customer with the Customer ID ''1fc2-413a'' fall into?			
 Formular Used =VLOOKUP(AG3, $R$4:$S$9344, 2,FALSE)
 
+TASK 7
+Clean up the date.   Using the first one below as example, the right format that excel will recognize is 2020-05-27 23:53:39 as it is in this format of "year-month-day hours:min:sec">>>>>Don't Use Text To Column, Use Functions only.		
 
+  1. formular used =TEXT(DATEVALUE(LEFT(AL4,10)) + TIMEVALUE(MID(AL4,12,8)), "yyyy-mm-dd hh:mm:ss")
 
+Breakdown:
+LEFT(AL3,10) → this takes the date part: 2020-05-27
+
+MID(AL3,12,8) → this  grabs the time part: 23:53:39
+
+DATEVALUE(...) + TIMEVALUE(...) → this combines them into a proper datetime
+
+TEXT(..., "yyyy-mm-dd hh:mm:ss") → tis ensures it’s displayed in the correct format
+
+This will return a clean datetime Excel recognizes and can work with in calculations or sorting.
 
 
 
